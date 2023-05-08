@@ -11,7 +11,7 @@ export default function Main() {
 
 
     useEffect(() => {
-        fetch('http://www.omdbapi.com/?&apikey=295554cc&s=matrix')
+        fetch('https://www.omdbapi.com/?&apikey=295554cc&s=matrix')
             .then((responce) => responce.json())
             .then((data) => {
                 updateMovies(data.Search)
@@ -20,9 +20,9 @@ export default function Main() {
     }, [])
 
     const searchMovies = (str: string, type: string = "all") => {
-        console.log(`http://www.omdbapi.com/?&apikey=295554cc&s=${str === "" ? "matrix" : str}${type !== "all" ? `&type=${type}` : ""}`)
+        console.log(`https://www.omdbapi.com/?&apikey=295554cc&s=${str === "" ? "matrix" : str}${type !== "all" ? `&type=${type}` : ""}`)
         updateLoading(true)
-        fetch(`http://www.omdbapi.com/?&apikey=295554cc&s=${str === "" ? "matrix" : str}${type !== "all" ? `&type=${type}` : ""}`)
+        fetch(`https://www.omdbapi.com/?&apikey=295554cc&s=${str === "" ? "matrix" : str}${type !== "all" ? `&type=${type}` : ""}`)
             .then((responce) => responce.json())
             .then((data) => {
                 updateMovies(data.Search)
